@@ -57,7 +57,7 @@ public class Property {
 		return ret;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected Object convert0(Object o) {
 		Class<?> c;
 		if (propertyType.isArray() == false) {
