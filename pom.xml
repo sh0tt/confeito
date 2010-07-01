@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.t2framework.web</groupId>
+	<artifactId>confeito</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Confeito</name>
+	<description>Confeito,a micro webframework.</description>
+	<issueManagement>
+		<system></system>
+		<url></url>
+	</issueManagement>
+	<inceptionYear>2008</inceptionYear>
+	<developers>
+		<developer>
+			<id>shot</id>
+			<name>Shinpei Ohtani</name>
+			<email>shinpei.ohtani at gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>+9</timezone>
+			<url>http://shot6.blogspot.com/</url>
+		</developer>
+		<developer>
+			<id>yone098</id>
+			<name>Masaaki Yonebayashi</name>
+			<email>yone098 at gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>+9</timezone>
+		</developer>
+		<developer>
+			<id>c9katayama</id>
+			<name>Akio Katayama</name>
+			<email>c95029 at gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>+9</timezone>
+		</developer>
+		<developer>
+			<id>skirnir</id>
+			<name>YOKOTA Takehiko</name>
+			<email>skirnir at gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>+9</timezone>
+		</developer>
+		<developer>
+			<id>ryushi</id>
+			<name>SATO Taichi</name>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>+9</timezone>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<organization>
+		<name>The T2 Project</name>
+		<!--
+			<url>http://www.t2framework.org</url>
+		-->
+		<url>http://t-2.googlecode.com</url>
+	</organization>
+	<build>
+		<sourceDirectory>${basedir}/src</sourceDirectory>
+		<testSourceDirectory>${basedir}/test</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>${basedir}/src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>${basedir}/test</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		<defaultGoal>validate</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>org.t2framework.t2.tool.PagePropertiesGenerator</mainClass>
+							<packageName>org.t2framework.t2.tool</packageName>
+							<addClasspath>true</addClasspath>
+							<addExtensions>false</addExtensions>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>site</phase>
+						<configuration>
+							<tasks>
+								<echo message="T2 javadoc create..." />
+								<ant antfile="javadoc-build.xml" target="javadoc"></ant>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!--
+				mvn
+				com.googlecode.maven-overview-plugin:maven-overview-plugin:1.3:overview
+			-->
+			<plugin>
+				<groupId>com.googlecode.maven-overview-plugin</groupId>
+				<artifactId>maven-overview-plugin</artifactId>
+				<version>1.3</version>
+			</plugin>
+			<plugin>
+				<!-- usage : mvn license:format -Dyear=2010 -->
+				<groupId>com.google.code.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.4.0</version>
+				<configuration>
+					<header>http://t-2.googlecode.com/files/header.txt</header>
+					<includes>
+						<include>src/**/*.java</include>
+						<include>test/**/*.java</include>
+					</includes>
+					<encoding>UTF-8</encoding>
+					<headerDefinitions>
+						<headerDefinition>http://t-2.googlecode.com/files/header-definition.xml</headerDefinition>
+					</headerDefinitions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+		<extensions>
+			<!--
+				<extension> <groupId>org.jvnet.wagon-svn</groupId>
+				<artifactId>wagon-svn</artifactId> <version>1.8</version>
+				</extension>
+			-->
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav</artifactId>
+				<version>1.0-beta-2</version>
+			</extension>
+		</extensions>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+						<encoding>UTF-8</encoding>
+						<compilerArgument>-proc:none</compilerArgument>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<executions>
+						<execution>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<configuration>
+						<updateReleaseInfo>true</updateReleaseInfo>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<scm>
+		<connection>scm:svn:https://t-2.googlecode.com/svn/trunk/t2</connection>
+		<developerConnection>scm:svn:https://t-2.googlecode.com/svn/trunk/t2</developerConnection>
+		<url></url>
+	</scm>
+	<repositories>
+		<repository>
+			<id>maven.t2framework.org</id>
+			<name>The T2 Project Maven2 Repository</name>
+			<url>http://maven.t2framework.org/maven2</url>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>snapshot-maven.t2framework.org</id>
+			<name>The T2 Project Maven2 Snapshot Repository</name>
+			<url>http://maven.t2framework.org/maven2-snapshot</url>
+		</repository>
+		<!--
+			<repository> <id>internal</id> <name>Internal Repository</name>
+			<url>file:${basedir}/lib/repository</url> </repository>
+		-->
+		<repository>
+			<id>maven.seasar.org</id>
+			<name>The Seasar Foundation Maven2 Repository</name>
+			<url>http://maven.seasar.org/maven2</url>
+		</repository>
+		<repository>
+			<id>repository.codehaus.org</id>
+			<name>Codehaus Maven2 Repository</name>
+			<url>http://repository.codehaus.org</url>
+		</repository>
+
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.5</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>sdloader</groupId>
+			<artifactId>sdloader-jsp21</artifactId>
+			<version>0.3.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.4</version>
+		</dependency>
+	</dependencies>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>maven.t2framework.org</id>
+			<name>The T2 Project Maven2 Repository</name>
+			<url>dav:http://maven.t2framework.org/maven2</url>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>maven.t2framework.org</id>
+			<name>The T2 Project Maven2 Snapshot Repository</name>
+			<url>dav:http://maven.t2framework.org/maven2-snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib 
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<description>T2 tag library</description>
+	<display-name>t2tags</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>t</short-name>
+	<uri>http://www.t2framework.org/web/t2/functions</uri>
+
+	<function>
+		<description>Escape string.</description>
+		<name>escape</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String escape(java.lang.Object)</function-signature>
+		<example>&lt;${t:escape(name)}&gt;</example>
+	</function>
+
+	<function>
+		<description>Write url.</description>
+		<name>url</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String url(java.lang.String)</function-signature>
+		<example>&lt;${t:url(orgurl)}&gt;</example>
+	</function>
+
+	<function>
+		<description>Output string.</description>
+		<name>out</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String out(java.lang.Object)</function-signature>
+		<example>&lt;${t:out(name)}&gt;</example>
+	</function>
+
+	<function>
+		<description>Format date.</description>
+		<name>dateFormat</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String dateFormat(java.util.Date)</function-signature>
+		<example>&lt;${t:dateFormat(date, 'YYYY/MM/dd')}&gt;</example>
+	</function>
+
+	<function>
+		<description>Format date with format.</description>
+		<name>dateFormatWith</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String dateFormat(java.util.Date, java.lang.String)</function-signature>
+		<example>&lt;${t:dateFormat(date, 'YYYY/MM/dd')}&gt;</example>
+	</function>
+
+	<function>
+		<description>NLS string.</description>
+		<name>nls</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String nls(java.lang.String)</function-signature>
+		<example>&lt;${t:nls('NLS_KEY')}&gt;</example>
+	</function>
+
+	<function>
+		<description>NLS string.</description>
+		<name>nls1</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String nls(java.lang.String, java.lang.Object)</function-signature>
+		<example>&lt;${t:nls1('NLS_KEY', 'hoge')}&gt;</example>
+	</function>
+
+	<function>
+		<description>NLS string.</description>
+		<name>nls2</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String nls(java.lang.String, java.lang.Object, java.lang.Object)</function-signature>
+		<example>&lt;${t:nls2('NLS_KEY', 'hoge', 'foo')}&gt;</example>
+	</function>
+
+	<function>
+		<description>NLS string.</description>
+		<name>nls3</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String nls(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object)</function-signature>
+		<example>&lt;${t:nls3('NLS_KEY', 'hoge', 'foo', 'bar')}&gt;</example>
+	</function>
+
+	<function>
+		<description>NLS string.</description>
+		<name>nls4</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String nls(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)</function-signature>
+		<example>&lt;${t:nls4('NLS_KEY', 'hoge', 'foo', 'bar', 'baz')}&gt;</example>
+	</function>
+
+	<function>
+		<description>NLS string.</description>
+		<name>nls5</name>
+		<function-class>org.t2framework.t2.tag.Functions</function-class>
+		<function-signature>java.lang.String nls(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)</function-signature>
+		<example>&lt;${t:nls5('NLS_KEY', 'hoge', 'foo', 'bar', 'baz', 'moe')}&gt;</example>
+	</function>
+  
+</taglib>
