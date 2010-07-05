@@ -86,7 +86,7 @@ public class PageComponent {
 		this.actionMethodDesc.freeze();
 	}
 
-	public Method getDefaultMethodDesc() {
+	public Method getDefaultMethod() {
 		return defaultMethod;
 	}
 
@@ -119,7 +119,7 @@ public class PageComponent {
 	}
 
 	public Annotation getDefaultAnnotation() {
-		return getDefaultMethodDesc().getAnnotation(Default.class);
+		return getDefaultMethod().getAnnotation(Default.class);
 	}
 
 	@Override

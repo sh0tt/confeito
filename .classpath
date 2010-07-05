@@ -5,5 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/servlet-api-2.5.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/gson-1.4.jar" sourcepath="webapp/WEB-INF/lib/src/gson-1.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
