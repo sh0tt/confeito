@@ -59,6 +59,6 @@ public interface FormResolver {
 	 *            object instance
 	 * @param errorInfo
 	 */
-	void resolve(Form form, WebContext context, Component<?> target,
+	void resolve(Form form, WebContext context, Component target,
 			ErrorInfo errorInfo);
 }

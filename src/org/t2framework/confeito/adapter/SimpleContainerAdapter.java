@@ -136,11 +136,11 @@ public class SimpleContainerAdapter extends
 	 *             </#if>
 	 */
 	@Override
-	public <T> Component<T> getBeanDesc(Class<? super T> componentClass) {
+	public <T> Component getBeanDesc(Class<? super T> componentClass) {
 		Assertion.notNull(componentClass);
 		assertInited();
 		if (getContainer().containsKey(componentClass)) {
-			return new Component<T>(componentClass);
+			return Component.createByClass(componentClass);
 		}
 		return null;
 	}

@@ -108,7 +108,7 @@ public class FormParameterResolver extends AbstractParameterResolver {
 			errorInfo.addErrorInfo(className, t);
 			return null;
 		}
-		Component<Object> component = new Component<Object>(o);
+		Component component = Component.createByInstance(o);
 		resolver.resolve(form, context, component, errorInfo);
 		return o;
 	}

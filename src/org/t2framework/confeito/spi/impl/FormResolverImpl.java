@@ -55,7 +55,7 @@ public class FormResolverImpl implements FormResolver {
 	protected static Logger LOG = Logger.getLogger(FormResolverImpl.class);
 
 	@Override
-	public void resolve(Form form, WebContext context, Component<?> component,
+	public void resolve(Form form, WebContext context, Component component,
 			ErrorInfo errorInfo) {
 		final Request request = context.getRequest();
 		Map<String, Map<Integer, Object>> paramMap = RequestParseUtil

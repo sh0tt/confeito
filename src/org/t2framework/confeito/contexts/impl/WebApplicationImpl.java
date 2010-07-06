@@ -419,7 +419,7 @@ public class WebApplicationImpl implements WebApplication,
 				.hasNext();) {
 			Class key = itr.next();
 			UrlTemplate template = classCache.get(key);
-			final Component<Object> component = adapter.getBeanDesc(key);
+			final Component component = adapter.getBeanDesc(key);
 			if (component == null) {
 				throw new NoSuchComponentException(key.getName());
 			}

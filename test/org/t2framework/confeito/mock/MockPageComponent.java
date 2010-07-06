@@ -61,7 +61,7 @@ public class MockPageComponent extends PageComponent {
 
 	public MockPageComponent(final Class<?> clazz, final String templatePath) {
 		super(PackageUtil.getPackageName(Assertion.notNull(clazz)), clazz
-				.getSimpleName(), new Component<Object>(clazz),
+				.getSimpleName(), Component.createByClass(clazz),
 				new UrlTemplate(templatePath, true), actionAnnotationSet);
 	}
 }

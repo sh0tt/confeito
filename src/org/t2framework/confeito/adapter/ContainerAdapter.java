@@ -231,7 +231,7 @@ public interface ContainerAdapter<C> extends ContainerResource<C>,
 	 *         </p>
 	 *         </#if>
 	 */
-	<T> Component<T> getBeanDesc(Class<? super T> componentClass);
+	<T> Component getBeanDesc(Class<? super T> componentClass);
 
 	/**
 	 * <#if locale="en">

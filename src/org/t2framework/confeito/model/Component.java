@@ -10,29 +10,33 @@ import java.util.Map;
 import org.t2framework.confeito.Constants;
 import org.t2framework.confeito.util.JavaBeansUtil;
 
-public class Component<T> {
+public class Component {
 
-	protected Class<? super T> componentClass;
+	protected Class<?> componentClass;
 
-	protected T instance;
+	protected Object instance;
 
 	protected Map<String, Property> propertyMap = new HashMap<String, Property>();
 
 	protected List<Method> methods = new ArrayList<Method>();
 
-	public Component(Class<? super T> componentClass) {
+	public static Component createByInstance(Object o) {
+		Component component = createByClass(o.getClass());
+		component.setInstance(o);
+		return component;
+	}
+
+	public static Component createByClass(Class<?> clazz) {
+		Component component = new Component(clazz);
+		return component;
+	}
+
+	protected Component(Class<?> componentClass) {
 		this.componentClass = componentClass;
 		analyzePropertiesAndMethods(componentClass);
 	}
 
-	@SuppressWarnings("unchecked")
-	public Component(T o) {
-		this((Class<? super T>) o.getClass());
-		this.instance = o;
-	}
-
-	protected void analyzePropertiesAndMethods(
-			final Class<? super T> componentClass) {
+	protected void analyzePropertiesAndMethods(final Class<?> componentClass) {
 		for (Method m : componentClass.getMethods()) {
 			if (Ignore.isIgnorableMethod(m)) {
 				continue;
@@ -94,15 +98,15 @@ public class Component<T> {
 		return this.propertyMap.values();
 	}
 
-	public T getInstance() {
+	public Object getInstance() {
 		return instance;
 	}
 
-	public void setInstance(T instance) {
+	public void setInstance(Object instance) {
 		this.instance = instance;
 	}
 
-	public Class<? super T> getComponentClass() {
+	public Class<?> getComponentClass() {
 		return componentClass;
 	}
 

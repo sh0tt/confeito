@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 public class ComponentTest extends TestCase {
 
 	public void test1() throws Exception {
-		Component<Hoge> hoge = new Component<ComponentTest.Hoge>(Hoge.class);
+		Component hoge = new Component(Hoge.class);
 		assertNotNull(hoge.getComponentClass());
 		Collection<Property> properties = hoge.getProperties();
 		assertTrue(properties.size() == 2);
