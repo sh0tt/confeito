@@ -30,17 +30,26 @@ public class PageComponentTest extends TestCase {
 	}
 
 	public void test1() throws Exception {
-		PageComponent component = new PageComponent(HogePage.class,
-				new UrlTemplate("/hoge"), actionAnnotationSet);
+		UrlTemplate t = new UrlTemplate("/hoge");
+		PageComponent component = new PageComponent(HogePage.class, t,
+				actionAnnotationSet);
 		assertNotNull(component.getDefaultMethod());
 
 		ActionMethod actionMethod = component.getActionMethod();
 		assertNotNull(actionMethod);
-		Set<String> methodNames = actionMethod.getMethodNames();
-		assertTrue(methodNames.size() == 2);
+
+		assertEquals("HogePage", component.getPageName());
+
+		assertNotNull(component.getDefaultAnnotation());
+
+		assertNotNull(component.getPackageName());
+
+		assertEquals("/hoge", component.getPageTemplatePath());
+
+		assertEquals(t, component.getUrlTemplate());
 	}
 
-	@Page
+	@Page("aaa")
 	public static class HogePage {
 
 		@POST

@@ -32,7 +32,7 @@ import org.t2framework.confeito.util.Logger;
 /**
  * <#if locale="en">
  * <p>
- * An implementation of {@link ActionMethod}.
+ * Confeito action method.
  * 
  * </p>
  * <#else>
