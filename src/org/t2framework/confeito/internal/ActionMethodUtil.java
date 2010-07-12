@@ -50,7 +50,7 @@ public class ActionMethodUtil {
 	 * @param actionAnnotationSet
 	 * @return
 	 */
-	public static ActionMethod createActionMethodDesc(Component pbd,
+	public static ActionMethod createActionMethod(Component pbd,
 			Set<Class<? extends Annotation>> actionAnnotationSet) {
 		Assertion.notNull(pbd);
 		Assertion.notNull(actionAnnotationSet);
@@ -104,7 +104,7 @@ public class ActionMethodUtil {
 	 * @param beanDesc
 	 * @return
 	 */
-	public static Method resolveDefaultMethodDesc(Component component) {
+	public static Method resolveDefaultMethod(Component component) {
 		Assertion.notNull(component);
 		for (Method md : component.getMethods()) {
 			if(Ignore.isIgnorableMethod(md)) {

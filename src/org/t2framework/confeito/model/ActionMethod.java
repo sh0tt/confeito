@@ -114,7 +114,7 @@ public class ActionMethod implements Iterable<Method> {
 		return new HashSet<String>(methodNameList);
 	}
 
-	public void addDefaultMethodDesc(Method defaultMethodDesc) {
+	public void addDefaultMethod(Method defaultMethodDesc) {
 		Assertion.notNull(defaultMethodDesc);
 		if (actionInfoList.contains(defaultMethodDesc) == false) {
 			actionInfoList.add(new ActionInfo(defaultMethodDesc,

@@ -49,7 +49,7 @@ public class PageComponent {
 
 	protected Class<?> pageClass;
 
-	protected ActionMethod actionMethodDesc;
+	protected ActionMethod actionMethod;
 
 	protected UrlTemplate template;
 
@@ -70,20 +70,20 @@ public class PageComponent {
 		this.pageName = Assertion.notNull(shortClassName);
 		this.template = template;
 		this.actionAnnotationSet = Assertion.notNull(actionAnnotationSet);
-		initActionMethodDesc(component);
+		initActionMethod(component);
 	}
 
-	protected void initActionMethodDesc(Component component) {
+	protected void initActionMethod(Component component) {
 		this.pageClass = component.getComponentClass();
-		this.actionMethodDesc = ActionMethodUtil.createActionMethodDesc(
+		this.actionMethod = ActionMethodUtil.createActionMethod(
 				component, actionAnnotationSet);
 		final Method defaultMethod = ActionMethodUtil
-				.resolveDefaultMethodDesc(component);
+				.resolveDefaultMethod(component);
 		if (defaultMethod != null) {
-			this.actionMethodDesc.addDefaultMethodDesc(defaultMethod);
+			this.actionMethod.addDefaultMethod(defaultMethod);
 			this.defaultMethod = defaultMethod;
 		}
-		this.actionMethodDesc.freeze();
+		this.actionMethod.freeze();
 	}
 
 	public Method getDefaultMethod() {
@@ -102,11 +102,11 @@ public class PageComponent {
 		return pageClass;
 	}
 
-	public ActionMethod getActionMethodDesc() {
-		return actionMethodDesc;
+	public ActionMethod getActionMethod() {
+		return actionMethod;
 	}
 
-	public boolean hasDefaultMethodDesc() {
+	public boolean hasDefaultMethod() {
 		return defaultMethod != null;
 	}
 

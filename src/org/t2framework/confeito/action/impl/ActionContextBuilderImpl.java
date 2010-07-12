@@ -119,7 +119,7 @@ public class ActionContextBuilderImpl implements ActionContextBuilder {
 		actionContext.setTargetPageDesc(current);
 		List<Method> matchList = null;
 		int maxMatchCount = 0;
-		search: for (Method methodDesc : current.getActionMethodDesc()) {
+		search: for (Method methodDesc : current.getActionMethod()) {
 			actionContext.clearMatchCount();
 			final boolean continueToNext = buildActionMethod(actionContext,
 					methodDesc);
@@ -161,7 +161,7 @@ public class ActionContextBuilderImpl implements ActionContextBuilder {
 				ret = matchList.get(0);
 			} else {
 				throw new NoActionMethodFoundRuntimeException(current
-						.getActionMethodDesc().getMethodNames());
+						.getActionMethod().getMethodNames());
 			}
 		} else {
 			ret = current.getDefaultMethod();
@@ -228,7 +228,7 @@ public class ActionContextBuilderImpl implements ActionContextBuilder {
 
 	protected void setupForDefaultMethodDesc(final ActionContext actionContext,
 			final PageComponent current, final Method methodDesc) {
-		if (current.hasDefaultMethodDesc() == false) {
+		if (current.hasDefaultMethod() == false) {
 			throw new NoDefaultActionMethodFoundRuntimeException();
 		}
 		defaultResolver.resolve(actionContext, current.getDefaultAnnotation(),

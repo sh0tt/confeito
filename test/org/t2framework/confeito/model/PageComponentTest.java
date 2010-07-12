@@ -33,10 +33,19 @@ public class PageComponentTest extends TestCase{
 	public void test1() throws Exception {
 		PageComponent component = new PageComponent(HogePage.class, new UrlTemplate("/hoge"), actionAnnotationSet);
 		assertNotNull(component.getDefaultMethod());
+		
+		ActionMethod actionMethodDesc = component.getActionMethod();
+		assertNotNull(actionMethodDesc);
 	}
 	
 	@Page
 	public static class HogePage {
+		
+		@POST
+		@ActionPath
+		public Navigation foo(){
+			return null;
+		}
 		
 		@Default
 		public Navigation hoge(){
