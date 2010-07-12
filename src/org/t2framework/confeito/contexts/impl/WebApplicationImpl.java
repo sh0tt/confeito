@@ -413,13 +413,13 @@ public class WebApplicationImpl implements WebApplication,
 		return pageDescMap;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected void loadPageDescMap() {
 		for (Iterator<Class<?>> itr = classCache.keySet().iterator(); itr
 				.hasNext();) {
 			Class key = itr.next();
 			UrlTemplate template = classCache.get(key);
-			final Component<Object> component = adapter.getBeanDesc(key);
+			final Component component = adapter.getBeanDesc(key);
 			if (component == null) {
 				throw new NoSuchComponentException(key.getName());
 			}

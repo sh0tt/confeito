@@ -22,6 +22,7 @@ import java.util.Set;
 import org.t2framework.confeito.annotation.Default;
 import org.t2framework.confeito.model.ActionMethod;
 import org.t2framework.confeito.model.Component;
+import org.t2framework.confeito.model.Ignore;
 import org.t2framework.confeito.util.Assertion;
 
 /**
@@ -49,12 +50,15 @@ public class ActionMethodUtil {
 	 * @param actionAnnotationSet
 	 * @return
 	 */
-	public static ActionMethod createActionMethodDesc(Component<Object> pbd,
+	public static ActionMethod createActionMethodDesc(Component pbd,
 			Set<Class<? extends Annotation>> actionAnnotationSet) {
 		Assertion.notNull(pbd);
 		Assertion.notNull(actionAnnotationSet);
 		ActionMethod amd = new ActionMethod(actionAnnotationSet);
 		for (Method md : pbd.getMethods()) {
+			if(Ignore.isIgnorableMethod(md)) {
+				continue;
+			}
 			setupActionMethodDesc(md, amd, actionAnnotationSet);
 		}
 		return amd;
@@ -100,9 +104,12 @@ public class ActionMethodUtil {
 	 * @param beanDesc
 	 * @return
 	 */
-	public static Method resolveDefaultMethodDesc(Component<Object> component) {
+	public static Method resolveDefaultMethodDesc(Component component) {
 		Assertion.notNull(component);
 		for (Method md : component.getMethods()) {
+			if(Ignore.isIgnorableMethod(md)) {
+				continue;
+			}
 			if (md.getAnnotation(Default.class) != null) {
 				return md;
 			}

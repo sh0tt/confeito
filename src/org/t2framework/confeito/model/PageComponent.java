@@ -58,12 +58,12 @@ public class PageComponent {
 	public PageComponent(final Class<?> clazz, final UrlTemplate template,
 			Set<Class<? extends Annotation>> actionAnnotationSet) {
 		this(PackageUtil.getPackageName(Assertion.notNull(clazz)), ClassUtil
-				.getShortClassName(clazz), new Component<Object>(clazz),
+				.getShortClassName(clazz), new Component(clazz),
 				Assertion.notNull(template), actionAnnotationSet);
 	}
 
 	public PageComponent(final String packageName, final String shortClassName,
-			final Component<Object> component, final UrlTemplate template,
+			final Component component, final UrlTemplate template,
 			final Set<Class<? extends Annotation>> actionAnnotationSet) {
 		Assertion.notNulls(component, packageName, shortClassName, template);
 		this.packageName = Assertion.notNull(packageName);
@@ -73,7 +73,7 @@ public class PageComponent {
 		initActionMethodDesc(component);
 	}
 
-	protected void initActionMethodDesc(Component<Object> component) {
+	protected void initActionMethodDesc(Component component) {
 		this.pageClass = component.getComponentClass();
 		this.actionMethodDesc = ActionMethodUtil.createActionMethodDesc(
 				component, actionAnnotationSet);
@@ -86,7 +86,7 @@ public class PageComponent {
 		this.actionMethodDesc.freeze();
 	}
 
-	public Method getDefaultMethodDesc() {
+	public Method getDefaultMethod() {
 		return defaultMethod;
 	}
 
@@ -119,7 +119,7 @@ public class PageComponent {
 	}
 
 	public Annotation getDefaultAnnotation() {
-		return getDefaultMethodDesc().getAnnotation(Default.class);
+		return getDefaultMethod().getAnnotation(Default.class);
 	}
 
 	@Override

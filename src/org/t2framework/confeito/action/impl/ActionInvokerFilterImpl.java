@@ -15,6 +15,7 @@
  */
 package org.t2framework.confeito.action.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.t2framework.confeito.action.ActionContext;
@@ -189,7 +190,7 @@ public class ActionInvokerFilterImpl implements ActionFilter {
 	protected RuntimeException unwrapMethodInvocationRuntimeException(
 			Throwable t) throws ActionMethodInvocationException,
 			RuntimeException {
-		if (t instanceof InvocationTargetRuntimeException
+		if (t instanceof InvocationTargetException
 				|| t instanceof IllegalAccessRuntimeException) {
 			return new ActionMethodInvocationException(t.getCause());
 		} else if (t instanceof RuntimeException) {

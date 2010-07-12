@@ -13,21 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.t2framework.confeito.spi;
+package org.t2framework.confeito.mock;
 
-import org.t2framework.confeito.action.ErrorInfo;
-import org.t2framework.confeito.annotation.Form;
-import org.t2framework.confeito.contexts.WebContext;
-import org.t2framework.confeito.model.Component;
+import javax.servlet.RequestDispatcher;
 
 /**
  * <#if locale="en">
  * <p>
- * {@code FormResolver} interface is to resolve mapping between request and
- * object.
+ * Mock class of {@link RequestDispatcher}.
  * 
- * Since 0.6.3, API change for some reason from parameter Object to
- * BeanDesc<Object>.
  * </p>
  * <#else>
  * <p>
@@ -36,13 +30,14 @@ import org.t2framework.confeito.model.Component;
  * </#if>
  * 
  * @author shot
+ * 
  */
-public interface FormResolver {
+public interface MockRequestDispatcher extends RequestDispatcher {
 
 	/**
 	 * <#if locale="en">
 	 * <p>
-	 * Resolve mapping from request to object.
+	 * Get path for dispatching.
 	 * 
 	 * </p>
 	 * <#else>
@@ -51,14 +46,7 @@ public interface FormResolver {
 	 * </p>
 	 * </#if>
 	 * 
-	 * @param form
-	 *            annotation
-	 * @param context
-	 *            object with request
-	 * @param target
-	 *            object instance
-	 * @param errorInfo
+	 * @return
 	 */
-	void resolve(Form form, WebContext context, Component target,
-			ErrorInfo errorInfo);
+	String getPath();
 }

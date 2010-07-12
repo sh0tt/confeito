@@ -13,21 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.t2framework.confeito.spi;
+package org.t2framework.confeito.mock;
 
-import org.t2framework.confeito.action.ErrorInfo;
-import org.t2framework.confeito.annotation.Form;
-import org.t2framework.confeito.contexts.WebContext;
-import org.t2framework.confeito.model.Component;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 
 /**
  * <#if locale="en">
  * <p>
- * {@code FormResolver} interface is to resolve mapping between request and
- * object.
+ * Mock class of {@link ServletConfig}.
  * 
- * Since 0.6.3, API change for some reason from parameter Object to
- * BeanDesc<Object>.
  * </p>
  * <#else>
  * <p>
@@ -36,13 +31,14 @@ import org.t2framework.confeito.model.Component;
  * </#if>
  * 
  * @author shot
+ * 
  */
-public interface FormResolver {
+public interface MockServletConfig extends ServletConfig {
 
 	/**
 	 * <#if locale="en">
 	 * <p>
-	 * Resolve mapping from request to object.
+	 * Set servlet name.
 	 * 
 	 * </p>
 	 * <#else>
@@ -51,14 +47,40 @@ public interface FormResolver {
 	 * </p>
 	 * </#if>
 	 * 
-	 * @param form
-	 *            annotation
-	 * @param context
-	 *            object with request
-	 * @param target
-	 *            object instance
-	 * @param errorInfo
+	 * @param servletName
 	 */
-	void resolve(Form form, WebContext context, Component target,
-			ErrorInfo errorInfo);
+	void setServletName(final String servletName);
+
+	/**
+	 * <#if locale="en">
+	 * <p>
+	 * Set {@link ServletContext}.
+	 * 
+	 * </p>
+	 * <#else>
+	 * <p>
+	 * 
+	 * </p>
+	 * </#if>
+	 * 
+	 * @param servletContext
+	 */
+	void setServletContext(final ServletContext servletContext);
+
+	/**
+	 * <#if locale="en">
+	 * <p>
+	 * Set initial parameter.
+	 * 
+	 * </p>
+	 * <#else>
+	 * <p>
+	 * 
+	 * </p>
+	 * </#if>
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	void setInitParameter(final String name, final String value);
 }

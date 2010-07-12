@@ -1,0 +1,92 @@
+/*
+ * Copyright 2008-2010 the T2 Project ant the Others.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.t2framework.confeito.mock;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+import org.t2framework.confeito.util.ArrayUtil;
+import org.t2framework.confeito.util.ServletUtil;
+
+/**
+ * <#if locale="en">
+ * <p>
+ * An implementation class of {@link MockRequestDispatcher}.
+ * 
+ * </p>
+ * <#else>
+ * <p>
+ * 
+ * </p>
+ * </#if>
+ * 
+ * @author shot
+ * 
+ */
+public class MockRequestDispatcherImpl implements MockRequestDispatcher {
+
+	protected String path;
+
+	public MockRequestDispatcherImpl(final String path) {
+		this.path = path;
+	}
+
+	@SuppressWarnings("unchecked")
+	public void forward(ServletRequest request, ServletResponse response)
+			throws ServletException, IOException {
+		int question = path.indexOf('?');
+		if (question >= 0) {
+			MockHttpServletRequest req = MockHttpServletRequest.class
+					.cast(request);
+			Map<String, String[]> parameterMap = req.getParameterMap();
+			Map<String, String[]> originalParameterMap = new HashMap<String, String[]>(parameterMap);
+			parameterMap.clear();
+			Map<String, String[]> map = ServletUtil.parseParameters(path
+					.substring(question + 1), req.getCharacterEncoding());
+			parameterMap.putAll(map);
+			for (String key : originalParameterMap.keySet()) {
+				String[] originalValue = originalParameterMap.get(key);
+				String[] curValue = parameterMap.get(key);
+				if (curValue == null) {
+					parameterMap.put(key, originalValue);
+				} else {
+					final int currentLen = curValue.length;
+					final int originalLen = originalValue.length;
+					String[] newValue = new String[currentLen + originalLen];
+					ArrayUtil.copyAll(curValue, newValue);
+					ArrayUtil.copy(originalValue, newValue, 0, currentLen,
+							originalLen);
+					parameterMap.put(key, newValue);
+				}
+			}
+		}
+	}
+
+	public void include(ServletRequest request, ServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	@Override
+	public String getPath() {
+		return path;
+	}
+
+}

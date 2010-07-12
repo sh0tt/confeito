@@ -164,7 +164,7 @@ public class ActionContextBuilderImpl implements ActionContextBuilder {
 						.getActionMethodDesc().getMethodNames());
 			}
 		} else {
-			ret = current.getDefaultMethodDesc();
+			ret = current.getDefaultMethod();
 			setupForDefaultMethodDesc(actionContext, current, ret);
 		}
 		return ret;

@@ -291,7 +291,7 @@ public class MultiPartRequestFilter implements Filter {
 		 * </p>
 		 * </#if>
 		 */
-		@SuppressWarnings("unchecked")
+		@SuppressWarnings("rawtypes")
 		public Map getParameterMap() {
 			return paramMap;
 		}
@@ -307,7 +307,7 @@ public class MultiPartRequestFilter implements Filter {
 		 * </p>
 		 * </#if>
 		 */
-		@SuppressWarnings("unchecked")
+		@SuppressWarnings("rawtypes")
 		public Enumeration getParameterNames() {
 			return Collections.enumeration(paramMap.keySet());
 		}

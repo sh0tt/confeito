@@ -91,7 +91,7 @@ public class VarParameterResolver extends AbstractParameterResolver {
 		if (var == null) {
 			throw new IllegalStateException("must have @Var annotation.");
 		}
-		final String templateKey = var.value();
+		final String templateKey = "{" + var.value() + "}";
 		final boolean nullable = var.nullable();
 		final String value = actionContext.getVariables(templateKey);
 		if (value != null) {
