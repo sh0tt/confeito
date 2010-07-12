@@ -21,38 +21,38 @@ public class Ignore {
 		this.args = args;
 		this.returnType = returnType;
 	}
-	
+
 	private static void init() {
-		DEFAULT_IGNORES.add(new Ignore("wait", Constants.EMPTY_CLASS_ARRAY, Void.TYPE));
-		DEFAULT_IGNORES.add(new Ignore("wait",
-				new Class<?>[] { Long.TYPE, Integer.TYPE }, Void.TYPE));
-		DEFAULT_IGNORES
-				.add(new Ignore("wait", new Class<?>[] { Long.TYPE }, Void.TYPE));
+		DEFAULT_IGNORES.add(new Ignore("wait", Constants.EMPTY_CLASS_ARRAY,
+				Void.TYPE));
+		DEFAULT_IGNORES.add(new Ignore("wait", new Class<?>[] { Long.TYPE,
+				Integer.TYPE }, Void.TYPE));
+		DEFAULT_IGNORES.add(new Ignore("wait", new Class<?>[] { Long.TYPE },
+				Void.TYPE));
 		DEFAULT_IGNORES.add(new Ignore("hashCode", Constants.EMPTY_CLASS_ARRAY,
 				Integer.TYPE));
 		DEFAULT_IGNORES.add(new Ignore("getClass", Constants.EMPTY_CLASS_ARRAY,
 				Class.class));
-		DEFAULT_IGNORES.add(new Ignore("equals", new Class<?>[] { Object.class },
-				Boolean.TYPE));
+		DEFAULT_IGNORES.add(new Ignore("equals",
+				new Class<?>[] { Object.class }, Boolean.TYPE));
 		DEFAULT_IGNORES.add(new Ignore("toString", Constants.EMPTY_CLASS_ARRAY,
 				String.class));
-		DEFAULT_IGNORES
-				.add(new Ignore("notify", Constants.EMPTY_CLASS_ARRAY,
-						Void.TYPE));
-		DEFAULT_IGNORES.add(new Ignore("notifyAll", Constants.EMPTY_CLASS_ARRAY,
+		DEFAULT_IGNORES.add(new Ignore("notify", Constants.EMPTY_CLASS_ARRAY,
 				Void.TYPE));
+		DEFAULT_IGNORES.add(new Ignore("notifyAll",
+				Constants.EMPTY_CLASS_ARRAY, Void.TYPE));
 
 		DEFAULT_IGNORES.add(new Ignore("finalize", Constants.EMPTY_CLASS_ARRAY,
 				Void.TYPE));
 		DEFAULT_IGNORES.add(new Ignore("clone", Constants.EMPTY_CLASS_ARRAY,
 				Object.class));
-		DEFAULT_IGNORES.add(new Ignore("registerNatives", Constants.EMPTY_CLASS_ARRAY,
-				Void.TYPE));
+		DEFAULT_IGNORES.add(new Ignore("registerNatives",
+				Constants.EMPTY_CLASS_ARRAY, Void.TYPE));
 
 	}
 
 	public static boolean isIgnorableMethod(final Method m) {
-		if(DEFAULT_IGNORES.isEmpty()) {
+		if (DEFAULT_IGNORES.isEmpty()) {
 			init();
 		}
 		if (m.isBridge() || m.isSynthetic()) {
@@ -72,8 +72,9 @@ public class Ignore {
 		}
 		return false;
 	}
-	
-	private static boolean parameterEquals(Class<?>[] args, Class<?>[] parameterTypes) {
+
+	private static boolean parameterEquals(Class<?>[] args,
+			Class<?>[] parameterTypes) {
 		if (args.length != parameterTypes.length) {
 			return false;
 		}
@@ -84,6 +85,5 @@ public class Ignore {
 		}
 		return true;
 	}
-
 
 }

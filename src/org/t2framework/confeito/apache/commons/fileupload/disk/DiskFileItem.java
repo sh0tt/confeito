@@ -41,7 +41,8 @@ import org.t2framework.confeito.apache.commons.io.output.DeferredFileOutputStrea
 /**
  * <p>
  * The default implementation of the
- * {@link org.t2framework.confeito.apache.commons.fileupload.FileItem FileItem} interface.
+ * {@link org.t2framework.confeito.apache.commons.fileupload.FileItem FileItem}
+ * interface.
  * 
  * <p>
  * After retrieving an instance of this class from a

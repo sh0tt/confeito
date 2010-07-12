@@ -26,8 +26,8 @@ import org.t2framework.confeito.contexts.UploadFile;
  * <#if locale="en">
  * <p>
  * UploadFileImpl is a wrapper class of
- * {@link org.t2framework.confeito.apache.commons.fileupload.FileItem}. This class depends on Apache
- * commons fileupload.
+ * {@link org.t2framework.confeito.apache.commons.fileupload.FileItem}. This
+ * class depends on Apache commons fileupload.
  * 
  * </p>
  * <#else>

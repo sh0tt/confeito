@@ -24,13 +24,14 @@ import org.t2framework.confeito.apache.commons.io.FileCleaningTracker;
 
 /**
  * <p>
- * The default {@link org.t2framework.confeito.apache.commons.fileupload.FileItemFactory}
+ * The default
+ * {@link org.t2framework.confeito.apache.commons.fileupload.FileItemFactory}
  * implementation. This implementation creates
- * {@link org.t2framework.confeito.apache.commons.fileupload.FileItem} instances which keep their
- * content either in memory, for smaller items, or in a temporary file on disk,
- * for larger items. The size threshold, above which content will be stored on
- * disk, is configurable, as is the directory in which temporary files will be
- * created.
+ * {@link org.t2framework.confeito.apache.commons.fileupload.FileItem} instances
+ * which keep their content either in memory, for smaller items, or in a
+ * temporary file on disk, for larger items. The size threshold, above which
+ * content will be stored on disk, is configurable, as is the directory in which
+ * temporary files will be created.
  * </p>
  * 
  * <p>
@@ -173,7 +174,8 @@ public class DiskFileItemFactory implements FileItemFactory {
 	// --------------------------------------------------------- Public Methods
 
 	/**
-	 * Create a new {@link org.t2framework.confeito.apache.commons.fileupload.disk.DiskFileItem}
+	 * Create a new
+	 * {@link org.t2framework.confeito.apache.commons.fileupload.disk.DiskFileItem}
 	 * instance from the supplied parameters and the local factory
 	 * configuration.
 	 * 

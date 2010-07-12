@@ -57,7 +57,8 @@ public class MockRequestDispatcherImpl implements MockRequestDispatcher {
 			MockHttpServletRequest req = MockHttpServletRequest.class
 					.cast(request);
 			Map<String, String[]> parameterMap = req.getParameterMap();
-			Map<String, String[]> originalParameterMap = new HashMap<String, String[]>(parameterMap);
+			Map<String, String[]> originalParameterMap = new HashMap<String, String[]>(
+					parameterMap);
 			parameterMap.clear();
 			Map<String, String[]> map = ServletUtil.parseParameters(path
 					.substring(question + 1), req.getCharacterEncoding());

@@ -58,8 +58,8 @@ public class PageComponent {
 	public PageComponent(final Class<?> clazz, final UrlTemplate template,
 			Set<Class<? extends Annotation>> actionAnnotationSet) {
 		this(PackageUtil.getPackageName(Assertion.notNull(clazz)), ClassUtil
-				.getShortClassName(clazz), new Component(clazz),
-				Assertion.notNull(template), actionAnnotationSet);
+				.getShortClassName(clazz), new Component(clazz), Assertion
+				.notNull(template), actionAnnotationSet);
 	}
 
 	public PageComponent(final String packageName, final String shortClassName,
@@ -75,8 +75,8 @@ public class PageComponent {
 
 	protected void initActionMethod(Component component) {
 		this.pageClass = component.getComponentClass();
-		this.actionMethod = ActionMethodUtil.createActionMethod(
-				component, actionAnnotationSet);
+		this.actionMethod = ActionMethodUtil.createActionMethod(component,
+				actionAnnotationSet);
 		final Method defaultMethod = ActionMethodUtil
 				.resolveDefaultMethod(component);
 		if (defaultMethod != null) {

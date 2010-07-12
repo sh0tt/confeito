@@ -17,11 +17,11 @@ public class ComponentTest extends TestCase {
 		System.out.println(methods);
 		assertTrue(methods.size() == 1);
 	}
-	
+
 	public static class Hoge {
-		
+
 		protected String name;
-		
+
 		protected int age;
 
 		public String getName() {
@@ -39,8 +39,8 @@ public class ComponentTest extends TestCase {
 		public void setAge(int age) {
 			this.age = age;
 		}
-		
-		public String invoke(){
+
+		public String invoke() {
 			return "";
 		}
 	}

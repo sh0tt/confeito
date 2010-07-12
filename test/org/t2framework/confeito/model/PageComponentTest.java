@@ -16,8 +16,7 @@ import org.t2framework.confeito.annotation.Page;
 import org.t2framework.confeito.spi.Navigation;
 import org.t2framework.confeito.urltemplate.UrlTemplate;
 
-
-public class PageComponentTest extends TestCase{
+public class PageComponentTest extends TestCase {
 
 	public static Set<Class<? extends Annotation>> actionAnnotationSet = new HashSet<Class<? extends Annotation>>();
 
@@ -31,24 +30,27 @@ public class PageComponentTest extends TestCase{
 	}
 
 	public void test1() throws Exception {
-		PageComponent component = new PageComponent(HogePage.class, new UrlTemplate("/hoge"), actionAnnotationSet);
+		PageComponent component = new PageComponent(HogePage.class,
+				new UrlTemplate("/hoge"), actionAnnotationSet);
 		assertNotNull(component.getDefaultMethod());
-		
-		ActionMethod actionMethodDesc = component.getActionMethod();
-		assertNotNull(actionMethodDesc);
+
+		ActionMethod actionMethod = component.getActionMethod();
+		assertNotNull(actionMethod);
+		Set<String> methodNames = actionMethod.getMethodNames();
+		assertTrue(methodNames.size() == 2);
 	}
-	
+
 	@Page
 	public static class HogePage {
-		
+
 		@POST
 		@ActionPath
-		public Navigation foo(){
+		public Navigation foo() {
 			return null;
 		}
-		
+
 		@Default
-		public Navigation hoge(){
+		public Navigation hoge() {
 			return null;
 		}
 	}

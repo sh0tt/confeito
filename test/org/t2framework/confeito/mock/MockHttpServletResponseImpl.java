@@ -84,7 +84,7 @@ public class MockHttpServletResponseImpl implements MockHttpServletResponse {
 
 	protected String redirectPath;
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings( { "unchecked", "rawtypes" })
 	public MockHttpServletResponseImpl(HttpServletRequest request) {
 		cookieList = new ArrayList(Arrays.asList(request.getCookies()));
 		locale = request.getLocale();

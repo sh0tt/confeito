@@ -37,8 +37,8 @@ import org.t2framework.confeito.apache.commons.fileupload.FileUploadException;
  * <code>multipart/mixed</code> encoding type, as specified by <a
  * href="http://www.ietf.org/rfc/rfc1867.txt">RFC 1867</a>. Use
  * {@link #parseRequest(HttpServletRequest)} to acquire a list of
- * {@link org.t2framework.confeito.apache.commons.fileupload.FileItem}s associated with a given HTML
- * widget.
+ * {@link org.t2framework.confeito.apache.commons.fileupload.FileItem}s
+ * associated with a given HTML widget.
  * </p>
  * 
  * <p>

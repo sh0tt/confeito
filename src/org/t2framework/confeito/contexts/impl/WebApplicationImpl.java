@@ -413,7 +413,7 @@ public class WebApplicationImpl implements WebApplication,
 		return pageDescMap;
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings( { "unchecked", "rawtypes" })
 	protected void loadPageDescMap() {
 		for (Iterator<Class<?>> itr = classCache.keySet().iterator(); itr
 				.hasNext();) {

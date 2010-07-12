@@ -285,7 +285,7 @@ public class ActionInvokingContextImpl implements ActionInvokingContext {
 	 * @see org.t2framework.confeito.adapter.ContainerAdapter
 	 */
 	@Override
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings( { "unchecked", "rawtypes" })
 	public Object createPage(PageComponent pageDesc) {
 		Assertion.notNull(pageDesc, "PageDesc");
 		ContainerAdapter<?> adapter = getContainerAdapter();

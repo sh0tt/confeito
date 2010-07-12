@@ -154,8 +154,8 @@ public class PageDescFinderImplTest extends TestCase {
 		{
 			MockWebContext mock = MockWebContext.createMock("/t2-spring", "/");
 			Map<String, PageComponent> map = new HashMap<String, PageComponent>();
-			map.put("/",
-					new MockPageComponent(PageDescFinderImplTest.class, "/"));
+			map.put("/", new MockPageComponent(PageDescFinderImplTest.class,
+					"/"));
 			finder.initialize(map);
 			List<PageComponent> find = finder.find(mock);
 			assertNotNull(find);
@@ -177,8 +177,8 @@ public class PageDescFinderImplTest extends TestCase {
 		{
 			MockWebContext mock = MockWebContext.createMock("/t2", "/test");
 			Map<String, PageComponent> map = new HashMap<String, PageComponent>();
-			map.put("/test", new MockPageComponent(PageDescFinderImplTest.class,
-					"/test"));
+			map.put("/test", new MockPageComponent(
+					PageDescFinderImplTest.class, "/test"));
 			finder.initialize(map);
 			List<PageComponent> find = finder.find(mock);
 			assertNotNull(find);
@@ -208,8 +208,8 @@ public class PageDescFinderImplTest extends TestCase {
 		{
 			MockWebContext mock = MockWebContext.createMock("/t2", "/0");
 			Map<String, PageComponent> map = new HashMap<String, PageComponent>();
-			map.put("{aaa}", new MockPageComponent(PageDescFinderImplTest.class,
-					"{hoge}"));
+			map.put("{aaa}", new MockPageComponent(
+					PageDescFinderImplTest.class, "{hoge}"));
 			finder.initialize(map);
 			List<PageComponent> find = finder.find(mock);
 			assertNotNull(find);
@@ -223,7 +223,9 @@ public class PageDescFinderImplTest extends TestCase {
 		{
 			MockWebContext mock = MockWebContext.createMock("/t2", "/");
 			Map<String, PageComponent> map = new HashMap<String, PageComponent>();
-			map.put("", new MockPageComponent(PageDescFinderImplTest.class, ""));
+			map
+					.put("", new MockPageComponent(
+							PageDescFinderImplTest.class, ""));
 			finder.initialize(map);
 			List<PageComponent> find = finder.find(mock);
 			assertNotNull(find);
@@ -237,8 +239,8 @@ public class PageDescFinderImplTest extends TestCase {
 		{
 			MockWebContext mock = MockWebContext.createMock("/t2", "");
 			Map<String, PageComponent> map = new HashMap<String, PageComponent>();
-			map.put("a",
-					new MockPageComponent(PageDescFinderImplTest.class, "a"));
+			map.put("a", new MockPageComponent(PageDescFinderImplTest.class,
+					"a"));
 			finder.initialize(map);
 			List<PageComponent> find = finder.find(mock);
 			assertTrue(find.size() == 0);

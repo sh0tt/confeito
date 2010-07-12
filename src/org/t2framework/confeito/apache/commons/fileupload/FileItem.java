@@ -30,7 +30,8 @@ import java.io.UnsupportedEncodingException;
  * 
  * <p>
  * After retrieving an instance of this class from a
- * {@link org.t2framework.confeito.apache.commons.fileupload.FileUpload FileUpload} instance (see
+ * {@link org.t2framework.confeito.apache.commons.fileupload.FileUpload
+ * FileUpload} instance (see
  * {@link org.t2framework.confeito.apache.commons.fileupload.FileUpload #parseRequest(javax.servlet.http.HttpServletRequest)}
  * ), you may either request all contents of the file at once using
  * {@link #get()} or request an {@link java.io.InputStream InputStream} with

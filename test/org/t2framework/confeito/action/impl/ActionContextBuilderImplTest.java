@@ -68,9 +68,9 @@ public class ActionContextBuilderImplTest extends TestCase {
 
 	public void testBuild2_defaultAndActionPath() throws Exception {
 
-		ActionContextBuilderImpl builder = new ActionContextBuilderImpl(
-				creator.createActionMethodResolvers(containerAdapter),
-				creator.createDefaultActionMethodResolver(containerAdapter));
+		ActionContextBuilderImpl builder = new ActionContextBuilderImpl(creator
+				.createActionMethodResolvers(containerAdapter), creator
+				.createDefaultActionMethodResolver(containerAdapter));
 		MockWebContext mock = MockWebContext.createMock("/hoge", "foo/list");
 		mock.getMockHttpServletRequest().setMethod("GET");
 
@@ -92,9 +92,9 @@ public class ActionContextBuilderImplTest extends TestCase {
 	}
 
 	public void testBuild3_otherAnnotationShouldBeIgnored() throws Exception {
-		ActionContextBuilderImpl builder = new ActionContextBuilderImpl(
-				creator.createActionMethodResolvers(containerAdapter),
-				creator.createDefaultActionMethodResolver(containerAdapter));
+		ActionContextBuilderImpl builder = new ActionContextBuilderImpl(creator
+				.createActionMethodResolvers(containerAdapter), creator
+				.createDefaultActionMethodResolver(containerAdapter));
 		MockWebContext mock = MockWebContext.createMock("/hoge", "bar/exec");
 		mock.getMockHttpServletRequest().setMethod("GET");
 		mock.getMockHttpServletRequest().setParameter("exec", "hogehoge");
@@ -114,9 +114,9 @@ public class ActionContextBuilderImplTest extends TestCase {
 	}
 
 	public void testBuild4_noActionMethod() throws Exception {
-		ActionContextBuilderImpl builder = new ActionContextBuilderImpl(
-				creator.createActionMethodResolvers(containerAdapter),
-				creator.createDefaultActionMethodResolver(containerAdapter));
+		ActionContextBuilderImpl builder = new ActionContextBuilderImpl(creator
+				.createActionMethodResolvers(containerAdapter), creator
+				.createDefaultActionMethodResolver(containerAdapter));
 		MockWebContext mock = MockWebContext.createMock("/hoge",
 				"baz/no_such_actionmethod");
 		mock.getMockHttpServletRequest().setMethod("GET");

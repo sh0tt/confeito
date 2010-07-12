@@ -110,8 +110,8 @@ public abstract class AbstractParameterResolver implements ParameterResolver {
 	@SuppressWarnings("unchecked")
 	protected <A> A findTargetAnnotation(Annotation[] annotations,
 			Class<?> targetAnnotationClass) {
-		if(annotations == null || targetAnnotationClass == null) {
-			return  null;
+		if (annotations == null || targetAnnotationClass == null) {
+			return null;
 		}
 		for (Annotation annotation : annotations) {
 			if (annotation.annotationType() == targetAnnotationClass) {

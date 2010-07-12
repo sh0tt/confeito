@@ -592,7 +592,6 @@ public class ActionInvokerImplTest extends TestCase {
 
 	}
 
-	
 	public static class MyPlugin2 extends AbstractPlugin {
 
 		@Override
@@ -632,7 +631,6 @@ public class ActionInvokerImplTest extends TestCase {
 		return map;
 	}
 
-	
 	@Page("/invoke3")
 	public static class InvokeTestPage3 {
 
@@ -643,7 +641,6 @@ public class ActionInvokerImplTest extends TestCase {
 
 	}
 
-	
 	@Page("/invoke4")
 	public static class InvokeTestPage4 {
 
@@ -654,7 +651,6 @@ public class ActionInvokerImplTest extends TestCase {
 
 	}
 
-	
 	@Page("/invoke5")
 	public static class InvokeTestPage5 {
 
@@ -677,7 +673,6 @@ public class ActionInvokerImplTest extends TestCase {
 	//
 	// }
 
-	
 	@Page("/page/invoke")
 	public static class PageValueTestTarget {
 
@@ -688,7 +683,6 @@ public class ActionInvokerImplTest extends TestCase {
 
 	}
 
-	
 	@Page("/page/invoke")
 	public static class VarValueTestTarget {
 

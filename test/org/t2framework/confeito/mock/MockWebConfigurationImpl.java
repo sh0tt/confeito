@@ -40,7 +40,6 @@ public class MockWebConfigurationImpl implements WebConfiguration {
 
 	protected WebApplication webApplication;
 
-
 	protected boolean eagerload;
 
 	protected String encoding = "UTF-8";

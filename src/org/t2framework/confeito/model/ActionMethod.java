@@ -67,18 +67,17 @@ public class ActionMethod implements Iterable<Method> {
 		this.comparator = comparator;
 	}
 
-	public void addTargetMethodDesc(Method methodDesc) {
-		Assertion.notNull(methodDesc);
-		final String methodName = methodDesc.getName();
-		addTargetMethodDesc(methodName, methodDesc);
+	public void addTargetMethod(Method method) {
+		Assertion.notNull(method);
+		final String methodName = method.getName();
+		addTargetMethod(methodName, method);
 	}
 
-	public void addTargetMethodDesc(String alias, Method methodDesc) {
+	public void addTargetMethod(String alias, Method method) {
 		Assertion.notNull(alias);
-		Assertion.notNull(methodDesc);
-		if (actionInfoList.contains(methodDesc) == false) {
-			ActionInfo info = new ActionInfo(alias, methodDesc,
-					actionAnnotationSet);
+		Assertion.notNull(method);
+		if (actionInfoList.contains(method) == false) {
+			ActionInfo info = new ActionInfo(alias, method, actionAnnotationSet);
 			actionInfoList.add(info);
 			addMethodName(alias);
 		}
@@ -92,7 +91,7 @@ public class ActionMethod implements Iterable<Method> {
 		}
 	}
 
-	public Method getMethodDesc(String methodName) {
+	public Method getMethod(String methodName) {
 		Assertion.notNull(methodName);
 		for (ActionInfo info : this.actionInfoList) {
 			if (info.methodName.endsWith(methodName)) {
@@ -106,7 +105,7 @@ public class ActionMethod implements Iterable<Method> {
 		return actionInfoList.isEmpty();
 	}
 
-	public int getMethodDescSize() {
+	public int getMethodSize() {
 		return actionInfoList.size();
 	}
 
@@ -160,7 +159,7 @@ public class ActionMethod implements Iterable<Method> {
 		return Collections.unmodifiableList(list);
 	}
 
-	public Method getMethodDesc(int index) {
+	public Method getMethod(int index) {
 		ActionInfo actionInfo = actionInfoList.get(index);
 		if (actionInfo != null) {
 			return actionInfo.methodDesc;

@@ -29,7 +29,7 @@ public class InParameterResolver extends AbstractParameterResolver {
 		setTargetAnnotationClass(In.class);
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings( { "rawtypes", "unchecked" })
 	@Override
 	public Object resolve(ActionContext actionContext, Method md,
 			int paramIndex, Annotation[] paramAnnotations, Class paramClass) {

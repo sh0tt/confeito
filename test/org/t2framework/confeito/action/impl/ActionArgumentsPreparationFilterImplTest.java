@@ -35,8 +35,8 @@ public class ActionArgumentsPreparationFilterImplTest extends TestCase {
 		ActionArgumentsPreparationFilterImpl filter = new ActionArgumentsPreparationFilterImpl();
 		MockWebContext context = MockWebContext.createMock("/hoge");
 		MockActionContextImpl ac = new MockActionContextImpl(context);
-		ac.setTargetMethodDesc(MethodUtil.getDeclaredMethod(
-				Target1Page.class, "hoge", new Class[] { Request.class }));
+		ac.setTargetMethodDesc(MethodUtil.getDeclaredMethod(Target1Page.class,
+				"hoge", new Class[] { Request.class }));
 		context.setActionContext(ac);
 		context.containerAdapter(new SimpleContainerAdapter());
 		MockActionInvokingContextImpl invokingContext = new MockActionInvokingContextImpl(

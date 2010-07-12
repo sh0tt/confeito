@@ -56,7 +56,7 @@ public class ActionMethodUtil {
 		Assertion.notNull(actionAnnotationSet);
 		ActionMethod amd = new ActionMethod(actionAnnotationSet);
 		for (Method md : pbd.getMethods()) {
-			if(Ignore.isIgnorableMethod(md)) {
+			if (Ignore.isIgnorableMethod(md)) {
 				continue;
 			}
 			setupActionMethodDesc(md, amd, actionAnnotationSet);
@@ -83,7 +83,7 @@ public class ActionMethodUtil {
 			Set<Class<? extends Annotation>> actionAnnotationSet) {
 		for (Class<? extends Annotation> annotationClass : actionAnnotationSet) {
 			if (md.getAnnotation(annotationClass) != null) {
-				amd.addTargetMethodDesc(md);
+				amd.addTargetMethod(md);
 				return;
 			}
 		}
@@ -107,7 +107,7 @@ public class ActionMethodUtil {
 	public static Method resolveDefaultMethod(Component component) {
 		Assertion.notNull(component);
 		for (Method md : component.getMethods()) {
-			if(Ignore.isIgnorableMethod(md)) {
+			if (Ignore.isIgnorableMethod(md)) {
 				continue;
 			}
 			if (md.getAnnotation(Default.class) != null) {

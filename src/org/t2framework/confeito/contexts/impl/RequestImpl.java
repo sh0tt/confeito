@@ -243,7 +243,7 @@ public class RequestImpl implements Request {
 				Request.MULTIPART_ATTRIBUTE_KEY);
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings( { "unchecked", "rawtypes" })
 	@Override
 	public Map<String, Object> getHeaders() {
 		Map<String, Object> headers = new HashMap<String, Object>();

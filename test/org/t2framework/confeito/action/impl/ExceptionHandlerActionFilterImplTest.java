@@ -55,8 +55,8 @@ public class ExceptionHandlerActionFilterImplTest extends TestCase {
 			throws Exception {
 		ExceptionHandlerActionFilterImpl filter = new ExceptionHandlerActionFilterImpl();
 		Set<Class<? extends Annotation>> set = Collections.emptySet();
-		PageComponent pageDesc = new PageComponent(Hoeeee.class, new UrlTemplate(
-				"hoee"), set);
+		PageComponent pageDesc = new PageComponent(Hoeeee.class,
+				new UrlTemplate("hoee"), set);
 
 		MockWebContext context = MockWebContext.createMock("/t2-test",
 				"/invoke/hoge.html");
@@ -87,8 +87,8 @@ public class ExceptionHandlerActionFilterImplTest extends TestCase {
 	public void test2_exceptionHandlerFailToHandle() throws Exception {
 		ExceptionHandlerActionFilterImpl filter = new ExceptionHandlerActionFilterImpl();
 		Set<Class<? extends Annotation>> set = Collections.emptySet();
-		PageComponent pageDesc = new PageComponent(Hoeeee.class, new UrlTemplate(
-				"hoee"), set);
+		PageComponent pageDesc = new PageComponent(Hoeeee.class,
+				new UrlTemplate("hoee"), set);
 
 		MockWebContext context = MockWebContext.createMock("/t2-test",
 				"/invoke/hoge.html");
